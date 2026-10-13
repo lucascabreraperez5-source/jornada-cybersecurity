@@ -1,4 +1,4 @@
-# Lucas Cabrera Perez - Jornada-Cybersecurity
+# Lucas Cabrera Perez - Jornada em Cybersecurity
 
 > Em transição de carreira para Cibersegurança, com foco em SOC / Blue Team
 > e, no futuro, Cloud Security. Atualmente estudando para o CompTIA Security+.
