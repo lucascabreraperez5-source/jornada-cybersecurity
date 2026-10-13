@@ -22,4 +22,4 @@ documentando cada passo aqui.
 - **Windows & AD:** [Por que o Active Directory é alvo](03-windows-ad/active-directory.md)
 
 ## 📫 Contato
-- LinkedIn: https://www.linkedin.com/in/lucas-cabrera-8722231bb/edit/forms/summary/new
+- LinkedIn: https://www.linkedin.com/in/lucas-cabrera-8722231bb/
