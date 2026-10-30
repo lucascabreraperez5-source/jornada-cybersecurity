@@ -14,9 +14,9 @@ Neste repositório, documento minha evolução, os conhecimentos adquiridos e os
 
 - Cyber Security 101 — TryHackMe
 - Preparação para a certificação CompTIA Security+
-- Phyton fundamentos de programação aplicados à Cibersegurança
-- Hackers do Bem: formação complementar em cibersegurança
-
+- Python — Fundamentos de programação aplicados à Cibersegurança
+- Hackers do Bem — Formação complementar em Cibersegurança
+  
 ## 🎓 Certificações
 
 - CompTIA Security+ — *em preparação*
