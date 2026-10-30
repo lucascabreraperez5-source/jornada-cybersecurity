@@ -23,7 +23,7 @@ dns.qry.name == "google.com"
 
 Identifiquei uma consulta DNS do tipo A e a resposta retornando o endereço IP `142.250.79.206`.
 
-![Resolução DNS do Google](./evidencias/01-dns-google.png)
+<img width="1425" height="893" alt="01-dns-google" src="https://github.com/user-attachments/assets/c65e97b7-7f7f-43ee-bc60-d5ec142c7b1b" />
 
 Com isso, consegui observar como o computador consulta um servidor DNS para descobrir o endereço IP associado a um domínio.
 
@@ -47,7 +47,7 @@ Encontrei as três etapas do **3-Way Handshake**:
 2. SYN-ACK — o servidor responde.
 3. ACK — meu computador confirma.
 
-![Handshake TCP](./evidencias/02-handshake-tcp.png)
+<img width="1435" height="888" alt="02-handshake-tcp" src="https://github.com/user-attachments/assets/b7f422e7-4f13-4e37-8df9-0f82ba0958cf" />
 
 Essa etapa me ajudou a visualizar como uma conexão TCP é estabelecida antes da comunicação da aplicação.
 
@@ -63,9 +63,11 @@ Identifiquei as mensagens **Client Hello** e **Server Hello**, relacionadas à n
 
 Também observei que a conexão utilizou TLS 1.3 e a Cipher Suite `TLS_AES_128_GCM_SHA256`.
 
+<img width="1435" height="892" alt="03-tls-server-hello" src="https://github.com/user-attachments/assets/1090f1ed-a96d-4f44-9adc-c1a56b73b529" />
+
 Após a negociação, encontrei pacotes classificados como **Application Data**, cujo conteúdo estava criptografado.
 
-![Dados criptografados com TLS](./evidencias/05-tls-dados-criptografados.png)
+<img width="1436" height="893" alt="04-tls-dados-criptografados" src="https://github.com/user-attachments/assets/b1d2932f-e57c-412f-ae06-e53d1cf1620b" />
 
 Entendi que, mesmo sem conseguir ler o conteúdo da comunicação, ainda é possível analisar informações como IPs, portas, protocolos e tamanho dos pacotes.
 
