@@ -90,9 +90,13 @@ Também compreendi que encontrar eventos de logon não significa necessariamente
 
 ## Conclusão
 
-Essa prática me ajudou a entender melhor como o PowerShell pode ser utilizado para consultar informações importantes sobre um sistema Windows.
+Essa prática me ajudou a entender como o PowerShell pode ser utilizado para realizar verificações básicas de segurança em um sistema Windows.
 
-O principal aprendizado foi conseguir relacionar processos e conexões de rede, além de consultar registros de autenticação pela linha de comando.
+O ponto mais interessante foi conseguir identificar qual processo estava associado a uma conexão de rede, utilizando o PID para relacionar as informações.
+
+Também tive contato com a consulta de eventos de autenticação diretamente pelo terminal e percebi que, durante uma investigação, não basta executar comandos: é necessário interpretar os resultados e considerar o contexto antes de identificar uma possível ameaça.
+
+Foi uma primeira experiência de triagem de endpoint que contribuiu para meus estudos em Segurança Defensiva e SOC.
 
 Também percebi que uma investigação não consiste apenas em executar comandos, mas em interpretar os resultados e compreender quando determinado comportamento realmente merece atenção.
 
