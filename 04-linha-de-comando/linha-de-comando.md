@@ -55,6 +55,14 @@ Entre suas aplicações estão:
 
 O conhecimento de PowerShell merece atenção especial na segurança de ambientes Windows, pois a ferramenta também pode ser utilizada em atividades maliciosas. Por isso, entender seu funcionamento é importante tanto para administração quanto para detecção de ameaças.
 
-## Próximos passos
+## Atividade prática — Mini-triagem de Endpoint com PowerShell
 
-Continuar praticando comandos em PowerShell e Bash, aprofundar os conhecimentos em administração de sistemas e começar a aplicar essas ferramentas em atividades de investigação, principalmente na análise de processos, conexões de rede e logs.
+Para complementar os conhecimentos adquiridos neste módulo, realizei uma atividade prática de triagem básica em um ambiente Windows, utilizando o PowerShell.
+
+Durante o exercício, consultei processos em execução, analisei conexões TCP e relacionei os identificadores de processos (PID) aos programas responsáveis pelas conexões.
+
+Também explorei registros de autenticação do Windows, identificando eventos de logon bem-sucedido (4624) e verificando a existência de tentativas de autenticação malsucedidas (4625).
+
+A prática foi documentada com os comandos utilizados, resultados observados e capturas reais do terminal, relacionando os conhecimentos de linha de comando às atividades de investigação em Segurança Defensiva.
+
+**[Ver atividade prática — Mini-triagem de Endpoint com PowerShell](./pratica-triagem-endpoint.md)**
