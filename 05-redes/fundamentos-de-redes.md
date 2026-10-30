@@ -205,8 +205,14 @@ Entre suas aplicações estão:
 
 Esses fundamentos também serão importantes nos meus próximos estudos sobre monitoramento, ferramentas SIEM e segurança em ambientes de nuvem.
 
-## Próximos passos
+## Atividade prática — Análise de tráfego com Wireshark
 
-Aprofundar a utilização do Wireshark e tcpdump, praticar a identificação de diferentes protocolos e realizar novas atividades de reconhecimento com Nmap.
+Para complementar os conceitos estudados neste módulo, realizei uma atividade prática de captura e análise de tráfego utilizando o Wireshark.
 
-Como próximo exercício, pretendo capturar e analisar o tráfego gerado ao acessar um site, acompanhando as etapas de resolução DNS, estabelecimento de conexão TCP e comunicação HTTPS.
+Durante o exercício, identifiquei consultas DNS, acompanhei o estabelecimento de uma conexão TCP pelo 3-way handshake e analisei a negociação TLS 1.3 e os registros de dados criptografados.
+
+Também tive contato com o protocolo QUIC, o que me ajudou a compreender algumas diferenças entre as formas de comunicação utilizadas na web atualmente.
+
+A atividade foi documentada com os filtros utilizados, resultados observados e capturas reais dos pacotes analisados.
+
+**[Ver atividade prática — Análise de Tráfego com Wireshark](./pratica-wireshark.md)**
