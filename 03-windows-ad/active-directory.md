@@ -48,6 +48,14 @@ O conhecimento de Windows, Active Directory e logs é uma base importante para q
 
 Esses fundamentos ajudam a compreender alertas relacionados a falhas de autenticação, acessos suspeitos e possíveis tentativas de comprometimento de contas corporativas.
 
-## Próximos passos
+## Atividade prática — Investigação de eventos do Windows e Active Directory
 
-Continuar praticando a análise de eventos do Windows, aprofundar os conhecimentos sobre Active Directory e avançar para laboratórios que envolvam detecção e investigação de atividades suspeitas.
+Para complementar os conhecimentos estudados neste módulo, realizei duas atividades práticas envolvendo análise de eventos de segurança do Windows e exploração de um domínio Active Directory no laboratório do TryHackMe.
+
+Na primeira atividade, utilizei o Event Viewer para investigar registros de autenticação, identificar tipos de logon e relacionar eventos de segurança, como os IDs 4624 e 4672.
+
+Na segunda, explorei o domínio `thm.local`, analisando a organização de usuários e grupos, permissões administrativas e configurações de segurança por meio de políticas de grupo (GPOs).
+
+As atividades foram documentadas com os procedimentos realizados, resultados encontrados e capturas reais das análises.
+
+**[Ver atividade prática — Windows e Active Directory](./pratica-windows-active-directory.md)**
