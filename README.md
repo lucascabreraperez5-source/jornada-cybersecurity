@@ -25,8 +25,8 @@ Neste repositório, documento minha evolução, os conhecimentos adquiridos e os
 ## 📂 Estudos e Projetos Práticos
 
 - **Fundamentos:** [Segurança Defensiva vs Ofensiva + Introdução ao SOC](01-fundamentos/defensiva-vs-ofensiva.md)
-- **Linux:** [Comandos Essenciais e Leitura de Logs](02-linux/comandos-essenciais.md)
-- **Windows & AD:** [Fundamentos de Windows e Active Directory](03-windows-ad/active-directory.md)
+- **Linux:** [Comandos Essenciais e Leitura de Logs](02-linux/comandos-essenciais.md) | [Prática — Análise de Logs de Autenticação no Linux](02-linux/pratica-logs-linux.md)
+- **Windows & AD:** [Fundamentos de Windows e Active Directory](03-windows-ad/active-directory.md) | [Prática — Investigação de Eventos do Windows e Fundamentos de Active Directory](03-windows-ad/pratica-windows-active-directory.md)
 - **Linha de Comando:** [CMD, PowerShell e Linux Shell](04-linha-de-comando/linha-de-comando.md) | [Prática — Mini-triagem de Endpoint](04-linha-de-comando/pratica-triagem-endpoint.md)
 - **Redes:** [Fundamentos de Redes](05-redes/fundamentos-de-redes.md) | [Prática — Análise de Tráfego com Wireshark](05-redes/pratica-wireshark.md)
 
