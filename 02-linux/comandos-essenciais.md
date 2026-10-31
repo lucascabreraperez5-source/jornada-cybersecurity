@@ -40,6 +40,16 @@ O conhecimento de Linux é uma das bases que estou desenvolvendo para seguir na 
 
 Meu próximo objetivo é aprofundar a análise de logs, aprender a identificar padrões suspeitos e conectar esses conhecimentos a investigações práticas de segurança.
 
-## Próximos passos
+## Atividade prática — Investigação de Logs de Autenticação SSH
 
-Continuar praticando comandos no terminal, explorar outros recursos do Linux e avançar nos laboratórios da trilha Cyber Security 101, registrando minha evolução neste repositório.
+Para complementar os conhecimentos adquiridos neste módulo, realizei uma atividade prática de análise de logs em uma máquina Linux disponibilizada pelo TryHackMe.
+
+Durante o exercício, utilizei comandos como `grep`, `sed`, `sort` e `uniq` para investigar registros de autenticação SSH no arquivo `/var/log/auth.log`.
+
+Identifiquei seis tentativas malsucedidas de autenticação provenientes de um mesmo endereço IP, comparei esses registros com acessos bem-sucedidos e analisei possíveis padrões de tentativa de acesso.
+
+Também aprendi a importância de utilizar filtros adequados para evitar resultados incorretos durante uma investigação.
+
+A atividade foi documentada com os comandos executados, resultados encontrados e capturas reais do terminal.
+
+**[Ver atividade prática — Investigação de Logs SSH no Linux](./pratica-logs-linux.md)**
