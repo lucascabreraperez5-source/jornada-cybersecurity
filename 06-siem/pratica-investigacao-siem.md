@@ -1,6 +1,6 @@
 # Prática — Investigação de Eventos de Segurança com Splunk SIEM
 
-**Projeto 06 — SIEM | TryHackMe — Log Analysis with SIEM**
+**Módulo: Security Solutions — TryHackMe Cyber Security 101**
 
 ## Objetivo
 
