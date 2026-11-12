@@ -1,8 +1,8 @@
 # Fundamentos de Segurança Defensiva — Triagem de Alertas em SOC
 
-> **Módulo — Segurança Defensiva | TryHackMe**
-
 ## Sobre o projeto
+
+Este estudo faz parte do Módulo 10 da trilha Cyber Security 101, na plataforma TryHackMe.
 
 Depois de estudar Windows, Linux, redes e análise de logs com Splunk, passei a explorar uma etapa importante da rotina de um SOC: a triagem de alertas. O objetivo deste projeto foi compreender como um analista organiza a fila de alertas, avalia o contexto e registra uma decisão a partir das informações disponíveis.
 
