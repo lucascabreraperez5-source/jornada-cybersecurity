@@ -4,99 +4,97 @@
 
 ## Sobre o projeto
 
-Depois de estudar redes, Linux, Windows, Active Directory e realizar algumas práticas de segurança defensiva, comecei a me preparar para a certificação **CompTIA Security+ (SY0-701)**.
+Depois de estudar redes, Linux, Windows, Active Directory e realizar práticas de segurança defensiva, comecei minha preparação para a certificação **CompTIA Security+ (SY0-701)**.
 
-O objetivo é consolidar os conhecimentos adquiridos até agora e aprofundar assuntos relacionados a ameaças, arquitetura de segurança, operações de SOC e gerenciamento de riscos.
+O objetivo é aprofundar conhecimentos em segurança da informação, principalmente sobre ameaças, arquitetura de segurança, operações de SOC e gerenciamento de riscos.
 
-Minha preparação inclui conteúdos teóricos, laboratórios do TryHackMe e **simulados do Jason Dion, disponíveis na Udemy**. Utilizo os resultados para identificar os assuntos em que tenho mais dificuldade e direcionar minhas revisões.
+Este documento reúne os principais conceitos dos cinco domínios da certificação, que estou estudando como parte da minha preparação para ingressar na área de segurança defensiva (Blue Team).
 
-Este documento reúne os principais conceitos dos cinco domínios da Security+, relacionando-os aos meus estudos e às atividades práticas documentadas no GitHub.
+## Metodologia de estudo
 
-## Como estou estudando
+Minha preparação combina conteúdo teórico, laboratórios do TryHackMe e **simulados do Jason Dion, disponíveis na Udemy**.
 
-- **Conteúdo teórico:** estudo e revisão dos principais conceitos da certificação.
-- **Simulados Jason Dion:** resolução de questões no formato da prova para avaliar meus conhecimentos.
-- **Revisão de erros:** análise das questões incorretas, buscando entender o conceito e não apenas memorizar respostas.
-- **Anotações:** registro de diferenças importantes entre termos e assuntos recorrentes.
-- **Laboratórios:** aplicação de conceitos em atividades práticas de segurança defensiva.
+Após cada simulado, reviso as questões que errei ou respondi com dúvida, organizando as anotações por domínio. Procuro entender o motivo da resposta correta e as diferenças entre conceitos semelhantes, em vez de apenas memorizar alternativas.
 
-Uma das maiores dificuldades que identifiquei nos simulados foi a interpretação de questões que apresentam conceitos muito parecidos. Por isso, passei a organizar as correções por domínio e revisar principalmente os pontos em que ainda tenho dúvidas.
+No primeiro simulado, identifiquei dificuldades especialmente nos fundamentos gerais de segurança e na interpretação de algumas questões. A partir disso, passei a direcionar as revisões para os assuntos que mais precisavam de atenção.
+
+Entre os conceitos que já revisei estão tipos de controles de segurança, engenharia social, continuidade de negócios, avaliação de riscos e indicadores de segurança.
 
 ---
 
 ## 1. General Security Concepts — 12%
 
-Este domínio aborda os princípios básicos utilizados para proteger sistemas e informações.
+O primeiro domínio apresenta os princípios básicos utilizados para proteger informações, sistemas e serviços.
 
-### Principais conceitos
-
-| Conceito | O que significa |
+| Conceito | Descrição |
 |---|---|
-| Tríade CIA | Confidencialidade, integridade e disponibilidade |
-| AAA | Autenticação, autorização e registro de atividades |
-| Security Controls | Controles preventivos, detectivos, corretivos e outros |
-| Zero Trust | Não conceder confiança automática a usuários e dispositivos |
-| Least Privilege | Fornecer apenas as permissões necessárias |
-| Cryptography | Proteção de informações por mecanismos criptográficos |
-| Change Management | Controle e documentação de alterações em sistemas |
+| **Tríade CIA** | Confidencialidade, integridade e disponibilidade |
+| **AAA** | Autenticação, autorização e registro de atividades |
+| **Security Controls** | Controles preventivos, detectivos, corretivos e outros |
+| **Zero Trust** | Acesso baseado em verificação, sem confiança automática |
+| **Least Privilege** | Conceder somente as permissões necessárias |
+| **Cryptography** | Proteção de informações por mecanismos criptográficos |
+| **Change Management** | Planejamento, aprovação e controle de mudanças |
 
-Durante a revisão, procurei reforçar principalmente as diferenças entre **autenticação e autorização**, as categorias e funções dos controles de segurança e a aplicação da criptografia.
+### Pontos importantes
 
-Também relacionei os conceitos de hashing e integridade com minha prática de verificação de arquivos utilizando SHA-256.
+A tríade CIA representa três objetivos fundamentais: impedir acessos indevidos, preservar a integridade das informações e manter sistemas disponíveis.
+
+Também é importante diferenciar **autenticação**, que confirma uma identidade, de **autorização**, que determina quais recursos ela pode acessar.
+
+Os controles de segurança podem ter diferentes funções. Um firewall pode atuar como controle preventivo, enquanto uma solução de monitoramento pode exercer uma função detectiva.
+
+No conteúdo de criptografia, revisei as diferenças entre criptografia simétrica, assimétrica e hashing, incluindo o uso do SHA-256 para verificação de integridade.
 
 ---
 
 ## 2. Threats, Vulnerabilities, and Mitigations — 22%
 
-O segundo domínio aborda ameaças, agentes maliciosos, vulnerabilidades e medidas utilizadas para reduzir riscos.
+Este domínio aborda agentes de ameaça, técnicas de ataque, vulnerabilidades e formas de reduzir riscos.
 
-### Principais conceitos
-
-| Conceito | O que significa |
+| Conceito | Descrição |
 |---|---|
-| Threat Actors | Pessoas ou grupos que representam ameaças |
-| Attack Surface | Pontos que podem ser explorados em um ambiente |
-| Social Engineering | Manipulação de pessoas para obter acessos ou informações |
-| Malware | Softwares com comportamentos maliciosos |
-| Web Attacks | Ataques como SQL Injection e XSS |
-| Network Attacks | Ataques como DDoS, DNS Poisoning e On-Path |
-| Vulnerability Mitigation | Medidas para reduzir a exposição a vulnerabilidades |
+| **Threat Actors** | Pessoas ou grupos capazes de representar ameaças |
+| **Attack Surface** | Pontos de um sistema que podem ser explorados |
+| **Social Engineering** | Manipulação de pessoas para obter acessos ou informações |
+| **Malware** | Softwares desenvolvidos para realizar atividades maliciosas |
+| **Web Attacks** | Ataques como SQL Injection e XSS |
+| **Network Attacks** | DDoS, DNS Poisoning e ataques On-Path |
+| **Mitigation** | Medidas para reduzir a probabilidade ou o impacto de ameaças |
 
-Uma parte importante dos estudos foi diferenciar técnicas de engenharia social, principalmente **phishing, spear phishing, whaling, smishing e vishing**.
+### Pontos importantes
 
-Também revisei tipos de malware, ataques a aplicações web e formas comuns de exploração de vulnerabilidades.
+Entre os tipos de engenharia social, é necessário diferenciar:
 
-### Relação com minhas práticas
+- **Phishing:** mensagens fraudulentas utilizadas para enganar usuários.
+- **Spear Phishing:** ataque direcionado a uma pessoa ou grupo específico.
+- **Whaling:** ataque direcionado a executivos ou pessoas de alto valor.
+- **Vishing:** engenharia social realizada por voz.
+- **Smishing:** phishing realizado por SMS ou mensagens semelhantes.
 
-Na investigação com Splunk e Sysmon, analisei a execução de um processo suspeito, sua conexão de rede e possíveis mecanismos de persistência.
+Também estudei diferentes tipos de malware, como ransomware, trojans, worms e spyware, além de vulnerabilidades de aplicações e ataques de rede.
 
-Na prática de triagem SOC, avaliei alertas relacionados a exfiltração de dados, arquivos com dupla extensão e downloads de repositórios.
-
-Essas atividades ajudaram a compreender como comportamentos suspeitos podem ser identificados e analisados.
+As principais medidas de mitigação incluem atualizações, hardening, segmentação de redes, MFA e controle de privilégios.
 
 ---
 
 ## 3. Security Architecture — 18%
 
-Este domínio apresenta conceitos utilizados para proteger infraestruturas, redes, aplicações e dados.
+O terceiro domínio trata da proteção de infraestruturas, redes, aplicações e dados.
 
-### Principais conceitos
-
-| Conceito | O que significa |
+| Conceito | Descrição |
 |---|---|
-| On-Premises e Cloud | Diferentes modelos de infraestrutura |
-| Shared Responsibility | Divisão das responsabilidades entre cliente e provedor |
-| Network Segmentation | Separação de redes para restringir comunicações |
-| Firewall, IDS e IPS | Controle, detecção e prevenção de atividades suspeitas |
-| WAF | Proteção específica para aplicações web |
-| Data Protection | Proteção de dados armazenados, transmitidos e processados |
-| High Availability | Recursos para reduzir interrupções e manter serviços disponíveis |
+| **On-Premises e Cloud** | Diferentes modelos de infraestrutura |
+| **Shared Responsibility** | Responsabilidades de segurança entre cliente e provedor |
+| **Network Segmentation** | Divisão de redes para limitar acessos e comunicações |
+| **Firewall, IDS e IPS** | Controle, detecção e prevenção de atividades suspeitas |
+| **WAF** | Proteção de aplicações web |
+| **Data Protection** | Proteção de dados armazenados, transmitidos e processados |
+| **High Availability** | Redundância e recursos para manter serviços disponíveis |
 
-Também revisei conceitos relacionados a backup, snapshots, redundância e recuperação de desastres.
+### Continuidade e recuperação
 
-### RTO, RPO e MTTR
-
-Esses três termos apareceram nas revisões dos simulados e exigiram atenção:
+Uma parte importante deste domínio envolve garantir a disponibilidade de sistemas e a recuperação após interrupções.
 
 | Termo | Significado |
 |---|---|
@@ -104,147 +102,88 @@ Esses três termos apareceram nas revisões dos simulados e exigiram atenção:
 | **RPO** | Perda máxima aceitável de dados, medida em tempo |
 | **MTTR** | Tempo médio necessário para reparar ou restaurar um recurso |
 
-A principal diferença é que RTO está relacionado ao tempo de recuperação, enquanto RPO está relacionado à quantidade de dados que pode ser perdida.
+A diferença entre RTO e RPO apareceu nas revisões dos simulados: o primeiro está relacionado ao tempo de recuperação, enquanto o segundo está relacionado à quantidade de dados que a organização pode perder.
+
+Também fazem parte deste domínio conceitos como backups, snapshots, redundância, virtualização e proteção de ambientes em nuvem.
 
 ---
 
 ## 4. Security Operations — 28%
 
-Este é o domínio com maior peso na certificação e um dos mais relacionados à minha preparação para trabalhar em um **SOC Júnior**.
+Este é o domínio com maior peso na certificação e possui relação direta com atividades de monitoramento e resposta a incidentes em um SOC.
 
-Ele aborda monitoramento, gerenciamento de vulnerabilidades, controles de acesso e resposta a incidentes.
-
-### Principais conceitos
-
-| Conceito | O que significa |
+| Conceito | Descrição |
 |---|---|
-| Hardening | Redução da superfície de ataque de sistemas |
-| Vulnerability Management | Identificação, avaliação e tratamento de vulnerabilidades |
-| SIEM | Centralização, pesquisa e correlação de eventos |
-| EDR | Monitoramento e resposta em endpoints |
-| IAM | Gerenciamento de identidades e acessos |
-| Incident Response | Processo de identificação e tratamento de incidentes |
-| SOAR | Automação e orquestração de atividades de segurança |
+| **Hardening** | Redução da superfície de ataque de sistemas |
+| **Vulnerability Management** | Identificação, priorização e tratamento de vulnerabilidades |
+| **SIEM** | Centralização, pesquisa e correlação de eventos |
+| **EDR** | Monitoramento e resposta em endpoints |
+| **IAM** | Gerenciamento de identidades e acessos |
+| **Incident Response** | Identificação, contenção e tratamento de incidentes |
+| **SOAR** | Automação e orquestração de atividades de segurança |
 
 ### Resposta a incidentes
 
-Uma das partes importantes deste domínio é compreender as etapas de resposta a incidentes:
+O processo de resposta a incidentes pode envolver:
 
-1. **Preparation:** preparar recursos e procedimentos.
-2. **Detection and Analysis:** identificar e analisar atividades suspeitas.
-3. **Containment:** limitar o impacto do incidente.
-4. **Eradication:** eliminar componentes maliciosos ou causas identificadas.
-5. **Recovery:** restaurar serviços e sistemas.
-6. **Lessons Learned:** revisar o ocorrido e melhorar os controles.
+1. **Preparation:** preparação de ferramentas, equipes e procedimentos.
+2. **Detection and Analysis:** identificação e análise de possíveis incidentes.
+3. **Containment:** limitação dos impactos.
+4. **Eradication:** remoção das causas ou componentes maliciosos.
+5. **Recovery:** recuperação de sistemas e serviços.
+6. **Lessons Learned:** revisão do incidente e melhoria dos controles.
 
-### Relação com minhas práticas
-
-Este domínio tem ligação direta com grande parte do meu portfólio:
-
-- Análise de logs de autenticação no Linux.
-- Investigação de eventos do Windows e Active Directory.
-- Triagem de endpoints utilizando PowerShell.
-- Análise de tráfego de rede no Wireshark.
-- Investigação de eventos com Splunk e Sysmon.
-- Classificação e documentação de alertas em um SOC simulado.
-
-Essas atividades me ajudaram a visualizar como os conceitos de segurança operacional são aplicados na prática.
+Este domínio se relaciona diretamente com algumas práticas que já documentei no GitHub, como análise de logs Linux, eventos do Windows, investigação com Splunk e Sysmon, análise de tráfego no Wireshark e triagem de alertas SOC.
 
 ---
 
 ## 5. Security Program Management and Oversight — 20%
 
-O quinto domínio aborda políticas, gerenciamento de riscos, conformidade e processos organizacionais de segurança.
+O quinto domínio aborda governança, gerenciamento de riscos, conformidade e processos organizacionais de segurança.
 
-Foi um dos domínios em que precisei revisar várias diferenças entre conceitos semelhantes durante os simulados.
-
-### Principais conceitos
-
-| Conceito | O que significa |
+| Conceito | Descrição |
 |---|---|
-| Governance | Diretrizes e responsabilidades de segurança |
-| Risk Management | Identificação, avaliação e tratamento de riscos |
-| Risk Assessment | Processo de identificação, análise e avaliação de riscos |
-| Risk Analysis | Análise de probabilidade, impacto e características dos riscos |
-| Compliance | Atendimento a requisitos legais, regulatórios e contratuais |
-| Security Audits | Verificação de controles e requisitos |
-| Third-Party Risk | Riscos relacionados a fornecedores e parceiros |
+| **Governance** | Políticas, diretrizes e responsabilidades de segurança |
+| **Risk Management** | Identificação, avaliação e tratamento de riscos |
+| **Risk Assessment** | Processo amplo de identificação, análise e avaliação de riscos |
+| **Risk Analysis** | Estimativa de características como probabilidade e impacto |
+| **Compliance** | Atendimento a requisitos legais, regulatórios e contratuais |
+| **Security Audits** | Verificação de controles e requisitos |
+| **Third-Party Risk** | Riscos relacionados a fornecedores e parceiros |
 
-### Conceitos que mais revisei
+### Conceitos revisados nos simulados
+
+Este domínio apresentou algumas diferenças importantes entre termos semelhantes:
 
 | Termos | Diferença principal |
 |---|---|
-| Risk Assessment x Risk Analysis | Avaliação de riscos é mais ampla; análise é uma de suas etapas |
-| Qualitative x Quantitative | Classificações descritivas versus estimativas numéricas |
-| KRI x KPI | Indicador de risco versus indicador de desempenho |
-| BCP x IRP | Continuidade de negócios versus resposta a incidentes |
-| RTO x RPO | Tempo de recuperação versus perda aceitável de dados |
-| Ad Hoc x Periodic Assessment | Avaliação conforme necessidade versus avaliação programada |
+| **Risk Assessment x Risk Analysis** | A avaliação é mais ampla; a análise faz parte do processo |
+| **Qualitative x Quantitative** | Classificações descritivas versus estimativas numéricas |
+| **KRI x KPI** | Indicador de risco versus indicador de desempenho |
+| **BCP x IRP** | Continuidade de negócios versus resposta a incidentes |
+| **Ad Hoc x Periodic Assessment** | Avaliação conforme necessidade versus avaliação programada |
 
-Também estudei conceitos de aceitação, mitigação, transferência e prevenção de riscos, além de regulamentações como LGPD e GDPR.
-
-Esses assuntos me ajudaram a entender que segurança da informação envolve não apenas ferramentas, mas também decisões de negócio, prioridades e responsabilidades.
+Também revisei estratégias de tratamento de riscos, como aceitação, mitigação, transferência e prevenção, além de conceitos relacionados a auditorias e regulamentações como LGPD e GDPR.
 
 ---
 
-## Revisão dos simulados do Jason Dion
+## Relação com as atividades práticas
 
-Os simulados do Jason Dion têm sido uma das principais ferramentas da minha preparação.
+Os estudos da Security+ complementam os projetos que já desenvolvi durante minha jornada em cibersegurança.
 
-No primeiro simulado, identifiquei dificuldades especialmente nos fundamentos gerais de segurança e em algumas questões situacionais. Isso me ajudou a perceber quais assuntos precisavam de mais atenção antes de avançar.
+Nos laboratórios, tive contato com análise de logs, investigação de processos, protocolos de rede, controles de acesso, monitoramento com SIEM e triagem de alertas.
 
-Passei então a revisar as questões por domínio, separando os conceitos que errei ou em que tive dúvidas.
-
-Minha intenção não é decorar as alternativas, mas compreender por que determinada resposta é correta e por que as outras não se aplicam ao cenário apresentado.
-
-Entre os assuntos que precisei reforçar estão:
-
-- Tipos e funções dos controles de segurança.
-- Engenharia social e diferenças entre ataques.
-- Arquitetura e disponibilidade de sistemas.
-- Resposta a incidentes e continuidade de negócios.
-- Avaliação de riscos e indicadores.
-- Interpretação de cenários e termos semelhantes.
-
-Continuo utilizando os simulados para acompanhar minha evolução e direcionar os estudos para os assuntos que ainda preciso melhorar.
-
----
-
-## Principais aprendizados
-
-A preparação para a Security+ está me ajudando a organizar os conhecimentos adquiridos durante minha jornada em cibersegurança.
-
-Os principais aprendizados até agora foram:
-
-- Compreender como os cinco domínios se relacionam.
-- Diferenciar ameaças, vulnerabilidades e riscos.
-- Reconhecer controles e tecnologias de segurança.
-- Entender princípios de arquitetura e continuidade.
-- Relacionar monitoramento e resposta a incidentes às atividades de um SOC.
-- Compreender a importância de políticas, auditorias e gerenciamento de riscos.
-- Utilizar os erros dos simulados para melhorar minha preparação.
-
-Também percebi que resolver questões exige mais do que memorizar definições. É necessário interpretar o cenário e identificar o conceito mais adequado.
-
----
-
-## Aplicação em Cibersegurança
-
-Meu objetivo é ingressar na área de **Segurança Defensiva (Blue Team)**, preferencialmente em uma posição inicial de SOC.
-
-A preparação para a Security+ complementa minhas atividades práticas ao reunir conhecimentos de redes, sistemas operacionais, criptografia, ameaças, monitoramento e gestão de segurança.
-
-Continuo estudando os cinco domínios e realizando simulados para fortalecer minha base técnica antes do exame oficial.
+A certificação reúne esses assuntos em uma estrutura mais ampla, incluindo também arquitetura, gestão de riscos e governança de segurança.
 
 ---
 
 ## Conclusão
 
-A CompTIA Security+ representa uma etapa importante da minha preparação para a primeira oportunidade profissional em cibersegurança.
+A preparação para a **CompTIA Security+ SY0-701** faz parte do meu desenvolvimento para buscar uma primeira oportunidade em segurança defensiva.
 
-Por meio dos conteúdos estudados, laboratórios e simulados do Jason Dion, estou conseguindo identificar dificuldades, revisar conceitos e relacionar a teoria às práticas que já documentei no GitHub.
+Continuo estudando os cinco domínios e utilizando os simulados do Jason Dion para identificar dificuldades e direcionar as revisões.
 
-**A certificação ainda está em preparação**, e este documento registra os principais fundamentos que venho desenvolvendo ao longo dos estudos.
+**A certificação ainda está em preparação**, e este documento registra os principais fundamentos que venho consolidando ao longo dos estudos.
 
 ---
 
