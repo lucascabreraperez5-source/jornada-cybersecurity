@@ -1,6 +1,6 @@
 # Prática — Triagem de Alertas em um SOC
 
-> **Projeto 07 — Segurança Defensiva | Laboratório SOC L1 Alert Triage — TryHackMe**
+> **Segurança Defensiva | Laboratório SOC L1 Alert Triage — TryHackMe**
 
 ## Sobre a prática
 
