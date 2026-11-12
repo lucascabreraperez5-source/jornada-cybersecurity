@@ -2,11 +2,9 @@
 
 ## Sobre o projeto
 
-Este estudo faz parte do Módulo 10 da trilha Cyber Security 101, na plataforma TryHackMe.
+Este material faz parte do Módulo 10 da trilha Cyber Security 101, do TryHackMe.
 
-Depois de estudar Windows, Linux, redes e análise de logs com Splunk, passei a explorar uma etapa importante da rotina de um SOC: a triagem de alertas. O objetivo deste projeto foi compreender como um analista organiza a fila de alertas, avalia o contexto e registra uma decisão a partir das informações disponíveis.
-
-Utilizei o laboratório **SOC L1 Alert Triage**, do TryHackMe, que apresenta um painel SOC simulado com alertas de diferentes severidades.
+Aqui o foco foi a rotina do analista L1. Chega uma fila de alertas, e é preciso decidir qual atender primeiro, o que checar e como registrar a decisão para outra pessoa entender.
 
 ## O que estudei
 
