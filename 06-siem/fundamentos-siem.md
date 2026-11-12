@@ -1,24 +1,26 @@
 # Fundamentos de SIEM — Monitoramento e Análise de Eventos de Segurança
 
-**Projeto 06 — SIEM | Cyber Security 101 — TryHackMe (Módulo 11: Security Solutions)**
+---
 
-## Sobre o projeto
+## Contexto
 
-Este documento reúne os principais conceitos que estudei sobre SIEM (Security Information and Event Management), uma tecnologia utilizada para centralizar, monitorar e analisar eventos de segurança de diferentes sistemas.
+Depois de estudar redes, Linux, Windows e linha de comando, comecei a entender como essas informações são utilizadas em conjunto durante uma investigação de segurança.
 
-O objetivo é compreender como um SOC utiliza essas ferramentas para identificar atividades suspeitas, investigar alertas e relacionar informações de computadores, servidores e dispositivos de rede.
+Foi nesse momento que entrei no conceito de **SIEM (Security Information and Event Management)**, uma tecnologia que permite centralizar e analisar registros de diferentes sistemas.
 
-Como parte dos estudos, utilizei o **Splunk Enterprise** em um laboratório do TryHackMe, aplicando consultas para investigar eventos registrados pelo Windows Sysmon.
+O objetivo deste módulo foi compreender como um SOC utiliza esses registros para monitorar ambientes, identificar comportamentos suspeitos e investigar possíveis incidentes.
+
+Também tive meu primeiro contato prático com o **Splunk Enterprise**, utilizando registros do Windows Sysmon em um laboratório do TryHackMe.
 
 ## O que estudei
 
-- Funcionamento e principais componentes de um SIEM.
-- Coleta, centralização e normalização de logs.
+- Funcionamento de um SIEM e sua importância para um SOC.
+- Coleta, centralização e análise de logs.
 - Diferença entre eventos, alertas e incidentes.
-- Conceitos básicos de correlação de eventos.
-- Utilização do Splunk e da linguagem SPL.
-- Monitoramento de processos e conexões com Sysmon.
-- Investigação de atividades suspeitas em um SOC.
+- Correlação de eventos de segurança.
+- Conceitos básicos do Splunk e da linguagem SPL.
+- Monitoramento de processos, conexões e arquivos com Sysmon.
+- Investigação de comportamentos suspeitos em endpoints Windows.
 
 ---
 
@@ -26,244 +28,241 @@ Como parte dos estudos, utilizei o **Splunk Enterprise** em um laboratório do T
 
 SIEM significa **Security Information and Event Management**, ou Gerenciamento de Informações e Eventos de Segurança.
 
-É uma solução que permite reunir registros produzidos por diferentes equipamentos e aplicações em um único ambiente.
+Sua função é reunir registros de diferentes sistemas em um ambiente centralizado, permitindo que analistas pesquisem eventos, identifiquem padrões e investiguem atividades suspeitas.
 
-Entre as fontes de informação estão:
+Entre as principais fontes de informação estão:
 
-- **Windows:** eventos de autenticação, execução de processos e alterações no sistema.
-- **Linux:** registros de autenticação SSH, comandos administrativos e atividades de serviços.
-- **Firewalls:** conexões permitidas, bloqueadas e tentativas de acesso.
-- **Servidores web:** requisições HTTP, erros e comportamentos incomuns.
-- **EDR e antivírus:** detecções de ameaças e atividades suspeitas em endpoints.
+| Fonte | Informações que podem ser analisadas |
+|---|---|
+| Windows | Autenticações, processos e alterações no sistema |
+| Linux | Logins SSH, comandos administrativos e serviços |
+| Firewall | Conexões permitidas e bloqueadas |
+| Servidores web | Requisições HTTP, erros e acessos |
+| EDR e antivírus | Detecções e comportamentos suspeitos em endpoints |
 
-A principal vantagem é permitir que o analista investigue atividades que envolvem diferentes sistemas sem precisar consultar cada equipamento separadamente.
+**O que entendi:** o SIEM não substitui o conhecimento sobre sistemas operacionais e redes. Ele reúne informações dessas diferentes áreas e facilita a investigação.
 
-### Exemplo prático
-
-Imagine que um usuário apresente várias falhas de autenticação e, logo depois, consiga acessar um servidor e executar um programa desconhecido.
-
-Analisando cada evento separadamente, talvez não seja possível compreender toda a situação.
-
-Com um SIEM, o analista pode correlacionar os registros e identificar uma possível sequência de atividades suspeitas.
-
-**Importante:** o SIEM não determina automaticamente que toda atividade incomum é maliciosa. Os alertas precisam ser avaliados dentro do contexto.
+Por exemplo, uma tentativa de autenticação malsucedida, seguida de execução de um processo desconhecido e uma conexão de rede incomum, pode ser mais relevante quando os eventos são analisados em conjunto.
 
 ---
 
-## 2. Coleta, armazenamento e correlação de logs
+## 2. Como funciona a análise de eventos
 
-O funcionamento básico de um SIEM pode ser dividido em algumas etapas:
+O funcionamento de um SIEM envolve diferentes etapas:
 
 | Etapa | Função |
 |---|---|
-| Coleta | Receber registros de diferentes sistemas e dispositivos |
-| Processamento | Interpretar e organizar os dados recebidos |
-| Armazenamento | Manter os eventos disponíveis para pesquisa e investigação |
-| Correlação | Relacionar eventos que podem representar uma mesma atividade |
-| Detecção | Aplicar regras e identificar comportamentos que merecem atenção |
-| Investigação | Permitir que o analista consulte e interprete os registros |
+| Coleta | Receber registros de diferentes dispositivos e sistemas |
+| Processamento | Interpretar e organizar os eventos recebidos |
+| Armazenamento | Manter os registros disponíveis para consulta |
+| Correlação | Relacionar eventos que podem fazer parte de uma mesma atividade |
+| Detecção | Identificar comportamentos definidos como suspeitos |
+| Investigação | Permitir que o analista consulte e interprete os resultados |
 
 ### Correlação de eventos
 
-A correlação é especialmente importante em segurança defensiva.
+A correlação foi um dos conceitos que considerei mais importantes neste módulo.
 
-Por exemplo, os seguintes registros poderiam estar relacionados:
+Durante uma investigação, um único evento pode não ser suficiente para determinar se uma atividade representa uma ameaça.
 
-1. Um executável desconhecido é iniciado em um computador.
-2. O executável estabelece uma conexão de rede.
-3. São executados comandos para criar tarefas agendadas.
-4. O processo cria arquivos em diretórios temporários.
+Por exemplo:
 
-Cada ocorrência representa uma informação diferente. Quando analisadas em conjunto, podem indicar uma atividade que merece investigação.
+1. Um programa é executado em um computador.
+2. Esse programa estabelece uma conexão de rede.
+3. São executados comandos para configurar tarefas agendadas.
+4. O mesmo processo cria um arquivo em um diretório temporário.
 
-Foi justamente esse tipo de relação que procurei compreender durante a prática com o Splunk.
+Analisados separadamente, esses registros podem parecer apenas atividades do sistema.
+
+Entretanto, quando relacionados pelo horário, processo e outros identificadores, podem formar uma sequência que merece investigação.
+
+Esse foi o principal conceito que apliquei na atividade prática com o Splunk.
 
 ---
 
 ## 3. Diferença entre evento, alerta e incidente
 
-Esses três conceitos são importantes para quem pretende trabalhar em SOC.
+Esses três conceitos aparecem constantemente no trabalho de um SOC.
 
 | Conceito | Significado | Exemplo |
 |---|---|---|
-| Evento | Registro de alguma atividade observada | Um processo foi iniciado no Windows |
-| Alerta | Notificação gerada por uma regra ou mecanismo de detecção | Executável suspeito iniciando uma conexão incomum |
+| Evento | Registro de uma atividade | Um processo foi iniciado |
+| Alerta | Notificação de uma possível atividade suspeita | Um executável desconhecido realizou uma conexão incomum |
 | Incidente | Ocorrência que compromete ou ameaça a segurança e exige tratamento | Comprometimento confirmado de uma conta |
 
 **Nem todo evento gera um alerta, e nem todo alerta representa um incidente confirmado.**
 
-Um analista SOC Nível 1 precisa avaliar as evidências disponíveis, identificar possíveis falsos positivos e determinar se a situação precisa ser escalonada.
+Um analista SOC precisa verificar as evidências disponíveis antes de determinar se o alerta é um falso positivo, uma atividade legítima ou uma situação que precisa ser investigada ou escalonada.
+
+Isso também significa que encontrar um comportamento incomum não é suficiente para afirmar que houve uma invasão.
 
 ---
 
 ## 4. Splunk e linguagem SPL
 
-O **Splunk** é uma plataforma utilizada para pesquisar, monitorar e analisar dados de máquinas, incluindo logs de segurança.
+O **Splunk** é uma plataforma utilizada para coletar, pesquisar e analisar dados, incluindo registros de segurança.
 
-No laboratório do TryHackMe, utilizei o Splunk Enterprise para consultar registros de Windows, Linux e aplicações web.
+No laboratório do TryHackMe, utilizei o Splunk Enterprise para consultar eventos de Windows, Linux e aplicações web.
 
-As pesquisas são feitas com a linguagem **SPL (Search Processing Language)**.
+As pesquisas são realizadas por meio da linguagem **SPL (Search Processing Language)**.
 
 ### Conceitos principais
 
-- **Index:** conjunto onde os eventos ficam armazenados e podem ser pesquisados.
-- **Sourcetype:** identificação do formato ou tipo dos dados.
-- **Host:** equipamento associado ao registro.
-- **EventCode:** identificador de um evento, como os eventos do Windows.
-- **Field:** informação extraída de um registro, como IP, usuário ou processo.
+| Campo | Significado |
+|---|---|
+| `index` | Conjunto onde os eventos estão armazenados |
+| `sourcetype` | Tipo ou formato dos registros |
+| `host` | Equipamento associado ao evento |
+| `EventCode` | Identificador do evento registrado |
+| `_time` | Horário associado ao evento |
+| `Image` | Caminho do executável relacionado ao registro |
 
-### Consultas básicas
+### Consultas básicas que utilizei
 
-**Pesquisar os eventos de um índice:**
+**Pesquisar todos os registros de um índice:**
 
 ```spl
 index="task4"
 ```
 
-**Procurar um termo nos registros:**
+**Procurar referências a um executável:**
 
 ```spl
 index="task4" "SharePoint.exe"
 ```
 
-**Pesquisar eventos de criação de processo:**
+**Filtrar eventos de criação de processos:**
 
 ```spl
 index="task4" EventCode=1
 ```
 
-**Organizar resultados em uma tabela:**
+**Organizar os resultados em uma tabela:**
 
 ```spl
 index="task4" EventCode=1
 | table _time User Image ParentImage CommandLine
 ```
 
-O símbolo `|` (pipe) envia os resultados de uma etapa da pesquisa para o próximo comando.
+O símbolo `|` (pipe) permite encaminhar o resultado da pesquisa para outro comando.
 
-O comando `table` permite selecionar as informações mais importantes para a análise, facilitando a leitura dos registros.
+Já o `table` organiza os campos selecionados em colunas, facilitando a análise.
 
-Essas consultas foram utilizadas como base para a investigação prática.
+**O que aprendi:** em um SIEM, não basta encontrar um registro. É importante saber filtrar informações e selecionar os campos que ajudam a compreender o que aconteceu.
 
 ---
 
-## 5. Windows Sysmon — Monitoramento de atividades
+## 5. Windows Sysmon — Monitoramento de processos e conexões
 
 O **Sysmon (System Monitor)** é uma ferramenta da Microsoft Sysinternals que registra atividades detalhadas do Windows.
 
-Dependendo de sua configuração, pode registrar informações sobre criação de processos, conexões de rede, carregamento de módulos e criação de arquivos.
+Dependendo da configuração, ele pode registrar processos iniciados, conexões de rede, carregamento de módulos e criação de arquivos.
 
-Esses registros podem ser enviados para plataformas SIEM e utilizados durante investigações.
+Esses registros são importantes porque ajudam a reconstruir o comportamento de um programa dentro do sistema.
 
-### Eventos importantes
+### Event IDs importantes
 
-| Event ID | Descrição |
-|---|---|
-| 1 | Process Create — criação de processo |
-| 3 | Network Connection — conexão de rede |
-| 7 | Image Load — carregamento de imagem ou módulo |
-| 11 | File Create — criação de arquivo |
+| Event ID | Evento | Informação registrada |
+|---|---|---|
+| 1 | Process Create | Criação de um processo |
+| 3 | Network Connection | Conexão de rede associada a um processo |
+| 7 | Image Load | Carregamento de um módulo ou imagem |
+| 11 | File Create | Criação de um arquivo |
 
-### Campos importantes durante uma investigação
+### Campos utilizados na investigação
 
-**Image:** caminho do executável relacionado ao evento.
-
-**ParentImage:** executável que iniciou o processo analisado.
-
-**CommandLine:** comando utilizado para iniciar um processo.
-
-**ProcessId:** identificador numérico do processo.
-
-**ProcessGuid:** identificador utilizado pelo Sysmon para correlacionar eventos de uma mesma instância de processo.
-
-**DestinationIp:** endereço IP de destino de uma conexão.
-
-**DestinationPort:** porta utilizada na comunicação.
-
-**TargetFilename:** caminho do arquivo criado em um evento de criação de arquivo.
+- **Image:** caminho do executável.
+- **ParentImage:** processo que iniciou o executável.
+- **CommandLine:** comando utilizado para iniciar um processo.
+- **ProcessId:** identificador numérico do processo.
+- **ProcessGuid:** identificador que permite correlacionar eventos de uma mesma instância de processo.
+- **DestinationIp:** endereço IP de destino.
+- **DestinationPort:** porta utilizada na comunicação.
+- **TargetFilename:** arquivo criado pelo processo.
 
 ### Por que o ProcessGuid é importante?
 
-O PID de um processo pode ser reutilizado pelo Windows após seu encerramento.
+O Windows pode reutilizar o PID de um processo depois que ele é encerrado.
 
-Já o `ProcessGuid` permite relacionar registros associados a uma determinada instância de processo com maior precisão.
+Já o `ProcessGuid` permite identificar de maneira mais precisa uma determinada instância de processo dentro dos registros do Sysmon.
 
-Durante a prática, utilizei esse identificador para reunir eventos de criação de processo, conexão de rede, carregamento de módulo e criação de arquivo.
+Na atividade prática, utilizei esse campo para relacionar eventos de execução, conexão de rede, carregamento de módulo e criação de arquivo.
+
+Essa foi uma das partes mais interessantes do exercício, porque consegui acompanhar diferentes atividades associadas ao mesmo executável.
 
 ---
 
-## 6. Identificação de atividades suspeitas
+## 6. Identificação de comportamentos suspeitos
 
-Durante uma investigação, alguns comportamentos podem chamar a atenção de um analista:
+Durante o estudo, percebi que determinados comportamentos podem chamar a atenção de um analista SOC:
 
 - Executáveis iniciados a partir de diretórios temporários.
-- Programas com nomes que aparentam pertencer a aplicações conhecidas.
-- Conexões de rede para destinos ou portas incomuns.
+- Programas utilizando nomes semelhantes aos de aplicações conhecidas.
+- Conexões para endereços ou portas incomuns.
 - Criação de tarefas agendadas para execução automática.
-- Processos criando arquivos inesperados.
-- Atividades que ocorrem em sequência e apresentam relação entre si.
+- Criação de arquivos inesperados.
+- Vários eventos relacionados acontecendo em um intervalo curto.
 
-Entretanto, **nenhum desses comportamentos comprova, isoladamente, a presença de malware**.
+Entretanto, esses comportamentos precisam ser interpretados dentro do contexto.
 
-É necessário verificar o contexto da execução, a origem do arquivo, as ações realizadas e as demais evidências disponíveis.
+Por exemplo, o comando `schtasks.exe` é uma ferramenta legítima do Windows, utilizada para administrar tarefas agendadas.
 
-### Exemplo: tarefas agendadas
+Mas ele também pode ser utilizado indevidamente para configurar a execução automática de programas.
 
-O Windows possui o comando `schtasks`, utilizado para criar, consultar e administrar tarefas.
+**O ponto principal:** uma ferramenta legítima não garante que seu uso seja legítimo. É necessário analisar quem a executou, qual comando foi utilizado e qual programa estava envolvido.
 
-Esse recurso é legítimo e bastante utilizado na administração de sistemas.
-
-Porém, também pode ser abusado por invasores para executar programas automaticamente e estabelecer mecanismos de persistência.
-
-Por isso, a análise deve considerar qual programa será executado, quem criou a tarefa e em quais condições ela será acionada.
+Da mesma forma, um executável localizado em uma pasta temporária não é automaticamente malicioso, mas pode justificar verificações adicionais.
 
 ---
 
-## 7. Principais aprendizados
+## 7. O que aprendi
 
-Durante este módulo, compreendi que trabalhar com um SIEM envolve muito mais do que pesquisar palavras dentro de logs.
+Este módulo me ajudou a conectar conhecimentos adquiridos anteriormente em Windows, redes e linha de comando.
 
-Os principais pontos que aprendi foram:
+Antes, eu analisava processos, conexões e registros de autenticação separadamente. Com o SIEM, comecei a entender como essas informações podem ser reunidas para investigar uma mesma atividade.
 
-- A importância de centralizar registros de diferentes sistemas.
-- Como pesquisar eventos utilizando comandos básicos de SPL.
-- A diferença entre um evento registrado e um incidente confirmado.
-- Como relacionar processos, conexões e arquivos utilizando dados do Sysmon.
-- A utilidade de campos como `ParentImage`, `ProcessGuid` e `CommandLine`.
-- A importância de construir uma linha do tempo antes de apresentar conclusões.
-- A necessidade de distinguir comportamentos suspeitos de evidências suficientes para confirmar uma ameaça.
+Os principais aprendizados foram:
 
-Também percebi que uma boa investigação depende da qualidade dos registros disponíveis e da interpretação correta de cada evento.
+- Pesquisar e filtrar eventos utilizando SPL.
+- Identificar os campos mais importantes dos registros.
+- Reconhecer eventos do Windows Sysmon.
+- Relacionar processos, conexões e arquivos.
+- Organizar uma sequência de acontecimentos por data e horário.
+- Diferenciar uma evidência observada de uma hipótese de atividade maliciosa.
+
+Também entendi que uma investigação não depende apenas da quantidade de eventos encontrados, mas da capacidade de interpretar e relacionar as informações disponíveis.
 
 ---
 
 ## 8. Aplicação em Cibersegurança
 
-O conhecimento sobre SIEM está diretamente relacionado às atividades de um **SOC (Security Operations Center)**.
+O conhecimento sobre SIEM está diretamente relacionado ao trabalho de um **SOC (Security Operations Center)**.
 
-Entre suas aplicações estão:
+No dia a dia, um analista pode utilizar essas ferramentas para:
 
-- Monitorar eventos de autenticação e atividades de endpoints.
-- Investigar alertas de segurança e identificar possíveis falsos positivos.
-- Correlacionar registros de diferentes fontes.
-- Identificar processos, usuários e conexões envolvidos em atividades suspeitas.
-- Reconstruir sequências de eventos.
-- Documentar evidências e apoiar o escalonamento de incidentes.
+- Monitorar atividades de usuários e dispositivos.
+- Investigar alertas de segurança.
+- Correlacionar logs de diferentes fontes.
+- Identificar comportamentos suspeitos.
+- Reconstruir linhas do tempo de possíveis incidentes.
+- Documentar evidências e apoiar o escalonamento de ocorrências.
 
-Esses conhecimentos são importantes para minha preparação para atuar como **Analista SOC Nível 1**, especialmente nas atividades de monitoramento, triagem e investigação inicial.
+Para minha preparação como **Analista SOC Júnior**, considero esse um dos conhecimentos mais importantes até agora, principalmente por permitir aplicar conceitos que estudei nos módulos anteriores.
 
 ---
 
 ## Atividade prática — Investigação de Eventos com Splunk SIEM
 
-Para aplicar os conceitos estudados, realizei uma investigação no laboratório **Log Analysis with SIEM**, disponibilizado pelo TryHackMe.
+Para complementar os conceitos estudados, realizei uma investigação no laboratório **Log Analysis with SIEM**, disponibilizado pelo TryHackMe.
 
-Utilizando o Splunk Enterprise, analisei registros do Windows Sysmon relacionados à execução do arquivo `SharePoint.exe`, localizado em um diretório temporário.
+Utilizando o Splunk Enterprise, analisei eventos do Windows Sysmon relacionados à execução de um arquivo chamado `SharePoint.exe`, localizado em um diretório temporário.
 
-Durante a investigação, identifiquei uma conexão TCP, comandos de criação de tarefas agendadas e um evento de criação de arquivo DLL.
+Durante a atividade, identifiquei a criação do processo, uma conexão TCP, comandos relacionados à configuração de tarefas agendadas e a criação de um arquivo DLL.
 
-A partir dessas evidências, reconstruí uma linha do tempo da atividade e avaliei os comportamentos encontrados, diferenciando fatos observados de possíveis hipóteses de comprometimento.
+Também utilizei o `ProcessGuid` para relacionar diferentes eventos associados à mesma instância do executável.
 
-A prática foi documentada com as consultas SPL utilizadas, os resultados encontrados e capturas reais da investigação.
+A partir dessas informações, reconstruí uma linha do tempo e avaliei os comportamentos encontrados, diferenciando evidências observadas de possíveis hipóteses de comprometimento.
+
+Documentei os comandos SPL utilizados, os principais resultados e as capturas reais da investigação.
 
 **[Ver atividade prática — Investigação de Eventos com Splunk SIEM](./pratica-investigacao-siem.md)**
