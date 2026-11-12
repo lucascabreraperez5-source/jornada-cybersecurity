@@ -12,10 +12,10 @@ Neste repositório, documento minha evolução, os conhecimentos adquiridos e os
 
 ## 📚 Estudando atualmente
 
-- Cyber Security 101 — TryHackMe
-- Preparação para a certificação CompTIA Security+
-- Python — Fundamentos de programação aplicados à Cibersegurança
-- Hackers do Bem — Formação complementar em Cibersegurança
+- 📖 Nível 1 de SOC - TryHackMe
+- 📖 Preparação para a certificação CompTIA Security+
+- 📖 Python – Fundamentos de programação aplicados à Cibersegurança
+- 📖 Hackers do Bem – Formação complementar em Cibersegurança
   
 ## 🎓 Certificações
 
@@ -29,7 +29,8 @@ Neste repositório, documento minha evolução, os conhecimentos adquiridos e os
 - **Windows & AD:** [Fundamentos de Windows e Active Directory](03-windows-ad/active-directory.md) | [Prática — Investigação de Eventos do Windows e Fundamentos de Active Directory](03-windows-ad/pratica-windows-active-directory.md)
 - **Linha de Comando:** [CMD, PowerShell e Linux Shell](04-linha-de-comando/linha-de-comando.md) | [Prática — Mini-triagem de Endpoint](04-linha-de-comando/pratica-triagem-endpoint.md)
 - **Redes:** [Fundamentos de Redes](05-redes/fundamentos-de-redes.md) | [Prática — Análise de Tráfego com Wireshark](05-redes/pratica-wireshark.md)
-
+- **SIEM:** [Fundamentos de SIEM — Monitoramento e Análise de Eventos de Segurança](06-siem/fundamentos-siem.md) | [Prática — Investigação de Eventos com Splunk](06-siem/pratica-investigacao-siem.md)
+  
 ## 📫 Contato
 
 - LinkedIn: https://www.linkedin.com/in/lucas-cabrera-8722231bb/
