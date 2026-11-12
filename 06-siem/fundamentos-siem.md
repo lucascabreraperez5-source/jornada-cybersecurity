@@ -219,7 +219,7 @@ O que mais mudou meu jeito de olhar logs foi a correlação. Um evento isolado q
 
 Também aprendi a separar o que o log mostra do que eu imagino que aconteceu. Ver o `schtasks.exe` rodando é um fato. Concluir que foi persistência é só uma hipótese até aparecer mais evidência.
 
-DIFICULDADE REAL: o que me travou/demorou para entender no SPL/Splunk foi entender como relacionar diferentes eventos do Sysmon no Splunk para descobrir se pertenciam ao mesmo processo. Inicialmente, pesquisei pelo nome do executável, mas depois utilizei o campo ProcessGuid para correlacionar os registros com mais precisão.
+Dificuldade Encontrada: o que me travou/demorou para entender no SPL/Splunk foi entender como relacionar diferentes eventos do Sysmon no Splunk para descobrir se pertenciam ao mesmo processo. Inicialmente, pesquisei pelo nome do executável, mas depois utilizei o campo ProcessGuid para correlacionar os registros com mais precisão.
 
 Para o trabalho de SOC, isso significa saber qual campo olhar, filtrar o ruído e montar uma linha do tempo que outra pessoa consiga seguir.
 
