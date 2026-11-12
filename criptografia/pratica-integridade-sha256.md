@@ -190,5 +190,3 @@ Consegui observar que uma alteração simples no conteúdo de um documento foi s
 Além disso, utilizei comandos básicos do PowerShell para automatizar a comparação entre os valores.
 
 Considero esse conhecimento relevante para minha preparação em segurança defensiva, principalmente por sua aplicação na análise de arquivos e na preservação de evidências durante investigações.
-
-**[Voltar para Fundamentos de Criptografia](./fundamentos-criptografia.md)**
