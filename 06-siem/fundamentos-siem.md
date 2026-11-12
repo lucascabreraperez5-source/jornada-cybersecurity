@@ -2,7 +2,7 @@
 
 ---
 
-## Contexto
+## Sobre o projeto
 
 Depois de estudar redes, Linux, Windows e linha de comando, comecei a entender como essas informações são utilizadas em conjunto durante uma investigação de segurança.
 
