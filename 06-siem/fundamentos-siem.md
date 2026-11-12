@@ -1,8 +1,9 @@
 # Fundamentos de SIEM — Monitoramento e Análise de Eventos de Segurança
 
----
 
 ## Sobre o projeto
+
+Este estudo faz parte do Módulo 11 da trilha Cyber Security 101, na plataforma TryHackMe.
 
 Depois de estudar redes, Linux, Windows e linha de comando, comecei a entender como essas informações são utilizadas em conjunto durante uma investigação de segurança.
 
