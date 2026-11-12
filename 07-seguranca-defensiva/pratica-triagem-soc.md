@@ -102,6 +102,3 @@ A prática mostrou como uma fila de alertas pode conter situações muito difere
 
 Também consegui registrar o atendimento completo de cada caso, desde a atribuição ao analista L1 até o encerramento com justificativa. O principal aprendizado foi não tratar **severidade**, **detecção** e **comprometimento confirmado** como sinônimos.
 
----
-
-**[Voltar aos fundamentos de Segurança Defensiva](./fundamentos-seguranca-defensiva.md)**
