@@ -96,7 +96,7 @@ Após a análise, defini o veredito de cada caso, escrevi um comentário com a j
 
 A plataforma validou os três vereditos e liberou as confirmações de conclusão. Os registros do exercício demonstram o uso do fluxo de triagem no painel, sem afirmar que foram consultados logs adicionais, ferramentas externas de inteligência ou sistemas corporativos reais.
 
-## 6. O que aprendi
+## 6. Conclusão
 
 A prática mostrou como uma fila de alertas pode conter situações muito diferentes: um volume alto de dados associado a uma videoconferência, um executável com nome enganoso e uma atividade de desenvolvimento no GitHub.
 
