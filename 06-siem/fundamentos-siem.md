@@ -3,15 +3,12 @@
 
 ## Sobre o projeto
 
-Este estudo faz parte do Módulo 11 da trilha Cyber Security 101, na plataforma TryHackMe.
+Este material faz parte do Módulo 11 da trilha Cyber Security 101, do TryHackMe.
 
-Depois de estudar redes, Linux, Windows e linha de comando, comecei a entender como essas informações são utilizadas em conjunto durante uma investigação de segurança.
+Até aqui eu olhava cada fonte separada: um processo no Windows, uma conexão de rede, um log de login. Neste módulo vi o que o SIEM muda: ele junta tudo num só lugar, e um evento que sozinho parece normal ganha outro sentido quando aparece ao lado de outros.
 
-Foi nesse momento que entrei no conceito de **SIEM (Security Information and Event Management)**, uma tecnologia que permite centralizar e analisar registros de diferentes sistemas.
+Foi também meu primeiro contato com o Splunk. Usei logs do Sysmon num laboratório para investigar um executável suspeito. O resultado está na [prática de investigação](https://github.com/lucascabreraperez5-source/jornada-cybersecurity/blob/main/06-siem/pratica-investigacao-siem.md).
 
-O objetivo deste módulo foi compreender como um SOC utiliza esses registros para monitorar ambientes, identificar comportamentos suspeitos e investigar possíveis incidentes.
-
-Também tive meu primeiro contato prático com o **Splunk Enterprise**, utilizando registros do Windows Sysmon em um laboratório do TryHackMe.
 
 ## O que estudei
 
@@ -216,39 +213,15 @@ Da mesma forma, um executável localizado em uma pasta temporária não é autom
 
 ---
 
-## 7. O que aprendi
+## 7. O que aprendi deste módulo
 
-Este módulo me ajudou a conectar conhecimentos adquiridos anteriormente em Windows, redes e linha de comando.
+O que mais mudou meu jeito de olhar logs foi a correlação. Um evento isolado quase nunca diz muito. O que diz é a sequência: processo criado, conexão de rede, tarefa agendada e arquivo novo, tudo ligado ao mesmo processo.
 
-Antes, eu analisava processos, conexões e registros de autenticação separadamente. Com o SIEM, comecei a entender como essas informações podem ser reunidas para investigar uma mesma atividade.
+Também aprendi a separar o que o log mostra do que eu imagino que aconteceu. Ver o `schtasks.exe` rodando é um fato. Concluir que foi persistência é só uma hipótese até aparecer mais evidência.
 
-Os principais aprendizados foram:
+DIFICULDADE REAL: o que me travou/demorou para entender no SPL/Splunk foi entender como relacionar diferentes eventos do Sysmon no Splunk para descobrir se pertenciam ao mesmo processo. Inicialmente, pesquisei pelo nome do executável, mas depois utilizei o campo ProcessGuid para correlacionar os registros com mais precisão.
 
-- Pesquisar e filtrar eventos utilizando SPL.
-- Identificar os campos mais importantes dos registros.
-- Reconhecer eventos do Windows Sysmon.
-- Relacionar processos, conexões e arquivos.
-- Organizar uma sequência de acontecimentos por data e horário.
-- Diferenciar uma evidência observada de uma hipótese de atividade maliciosa.
-
-Também entendi que uma investigação não depende apenas da quantidade de eventos encontrados, mas da capacidade de interpretar e relacionar as informações disponíveis.
-
----
-
-## 8. Aplicação em Cibersegurança
-
-O conhecimento sobre SIEM está diretamente relacionado ao trabalho de um **SOC (Security Operations Center)**.
-
-No dia a dia, um analista pode utilizar essas ferramentas para:
-
-- Monitorar atividades de usuários e dispositivos.
-- Investigar alertas de segurança.
-- Correlacionar logs de diferentes fontes.
-- Identificar comportamentos suspeitos.
-- Reconstruir linhas do tempo de possíveis incidentes.
-- Documentar evidências e apoiar o escalonamento de ocorrências.
-
-Para minha preparação como **Analista SOC Júnior**, considero esse um dos conhecimentos mais importantes até agora, principalmente por permitir aplicar conceitos que estudei nos módulos anteriores.
+Para o trabalho de SOC, isso significa saber qual campo olhar, filtrar o ruído e montar uma linha do tempo que outra pessoa consiga seguir.
 
 ---
 
