@@ -6,8 +6,6 @@
 
 ## Sobre o projeto
 
-Depois de estudar redes, sistemas operacionais, análise de logs e triagem de alertas, comecei a explorar os fundamentos de criptografia e sua aplicação na segurança da informação.
-
 Neste módulo, procurei compreender como diferentes técnicas ajudam a proteger dados, verificar a integridade de arquivos e identificar alterações em informações.
 
 Também realizei uma atividade prática utilizando o **Windows PowerShell**, na qual calculei o hash SHA-256 de um arquivo, modifiquei seu conteúdo e comparei os resultados para identificar a alteração.
