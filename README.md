@@ -30,6 +30,9 @@ Neste repositório, documento minha evolução, os conhecimentos adquiridos e os
 - **Linha de Comando:** [CMD, PowerShell e Linux Shell](04-linha-de-comando/linha-de-comando.md) | [Prática — Mini-triagem de Endpoint](04-linha-de-comando/pratica-triagem-endpoint.md)
 - **Redes:** [Fundamentos de Redes](05-redes/fundamentos-de-redes.md) | [Prática — Análise de Tráfego com Wireshark](05-redes/pratica-wireshark.md)
 - **SIEM:** [Fundamentos de SIEM — Monitoramento e Análise de Eventos de Segurança](06-siem/fundamentos-siem.md) | [Prática — Investigação de Eventos com Splunk](06-siem/pratica-investigacao-siem.md)
+- **Segurança Defensiva:** [Fundamentos de Segurança Defensiva e Triagem SOC](07-seguranca-defensiva/fundamentos-seguranca-defensiva.md) | [Prática — Triagem de Alertas SOC](07-seguranca-defensiva/pratica-triagem-soc.md)
+- **Criptografia:** [Fundamentos de Criptografia e Integridade](criptografia/fundamentos-criptografia.md) | [Prática — Verificação de Integridade com SHA-256](criptografia/pratica-integridade-sha256.md)
+- **CompTIA Security+ (SY0-701) — Em preparação:** [Fundamentos dos 5 Domínios](security-plus/dominios-security-plus.md)
   
 ## 📫 Contato
 
